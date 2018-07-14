@@ -47,6 +47,7 @@ def add_to_cart():
     br.open( "https://www.freshdirect.com/api/addtocart", "data=" + params )
     
     soup = BS(br.response().read(), "lxml")
+    print soup
     
     #resp = Response(u'%s' % json_output)
     resp.headers['Content-Type'] = 'application/json; charset=utf-8'
