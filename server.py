@@ -49,7 +49,6 @@ def add_to_cart():
     
     soup = BS(br.response().read())
     
-    
     #resp = Response(u'%s' % json_output)
     resp.headers['Content-Type'] = 'application/json; charset=utf-8'
 
