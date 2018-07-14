@@ -3,7 +3,6 @@ from flask import Response
 from flask import request
 
 import json
-import freshdirect
 
 from mechanize import Browser
 from bs4 import BeautifulSoup as BS
@@ -47,7 +46,7 @@ def add_to_cart():
     #br.open( "https://www.freshdirect.com/api/addtocart", "data=%7B%22items%22%3A%5B%7B%22salesUnit%22%3A%22EA%22%2C%22quantity%22%3A%223%22%2C%22skuCode%22%3A%22FRU0069115%22%2C%22pageType%22%3A%22BROWSE%22%7D%5D%7D")
     br.open( "https://www.freshdirect.com/api/addtocart", "data=" + params )
     
-    soup = BS(br.response().read())
+    soup = BS(br.response().read(), "lxml")
     
     #resp = Response(u'%s' % json_output)
     resp.headers['Content-Type'] = 'application/json; charset=utf-8'
